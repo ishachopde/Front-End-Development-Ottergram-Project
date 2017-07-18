@@ -1,0 +1,146 @@
+html, body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  font-size: 25px;
+  background: rgb(149, 194, 215);
+}
+
+.main-header {
+  flex: 0 1 auto;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+}
+
+.thumbnail-image {
+  display: block;
+  width: 100%;
+}
+
+.thumbnail-title {
+  display: block;
+  margin: 0;
+  padding: 4px 10px;
+  background: rgb(96, 125, 139);
+  color: rgb(202, 238, 255);
+  font-size: 38px;
+}
+
+.thumbnail-item {
+  background: blue;
+  display: inline-block;
+  min-width: 420px;
+  max-width: 460px;
+  border: 1px solid rgb(100%, 100%, 100%);
+  border: 1px solid rgba(100%, 100%, 100%, 0.8);
+
+  transition: transform 133ms ease-in-out;
+  /* ease-in-out: makes transition slower in the end and beginning and faster in the middle*/
+}
+
+.thumbnail-item:hover{
+  transform: scale(1.2);/* tells the browser that the element must be drawn to 160% of its original size */
+}
+
+.thumbnail-list {
+  flex: 0 1 auto;
+  width: 23%;
+  /*height: 100%;*/
+  list-style: none;
+  order: 2;
+  display: flex;
+/*  padding: 10px 0;*/ /* padding: value1 value2; value1 applies to top & bottom, value2 applies to left and right*/
+  justify-content: space-between;
+  white-space: nowrap;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  flex-direction: column;
+  margin-left: 20px;
+  padding: 0 35px;
+}
+
+a {
+  text-decoration: none;
+}
+
+
+/* give spaces between the items except for the first one.
++ selector allows you to style all including the preceding ones*/
+
+.thumbnail-item+.thumbnail-item {
+  margin-top: 20px;
+}
+
+
+/* title ottergram styling*/
+
+.title {
+  font-family: 'Pacifico', cursive;
+  background: white;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 97px;
+}
+
+.detail-image {
+  width: 90%;
+}
+
+.detail-image-container {
+  flex: 1 1 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.detail-image-frame {
+  position: relative;
+  text-align: center;
+  transition: transform 333ms cubic-bezier(1, 0.06, 0.28, 1);
+}
+
+.is-tiny{
+transform: scale(0.001);
+transition: transform 0ms;
+}
+
+.detail-image-title {
+  color: white;
+  font-family: 'Kurale';
+  text-shadow: rgba(0, 0, 0, 0.9) 1px 2px 3px;
+  font-size: 100px;
+  position: absolute;
+  bottom: -29px;
+  left: 4px;
+}
+
+.thumbnail-item {
+  max-width: 260px;
+  }
+
+.hidden-detail .detail-image-container {
+  display: none;
+}
+
+.hidden-detail .thumbnail-list{
+  flex-direction: column;
+  align-items: center;
+}
+
+.hidden-detail .thumbnail-item{
+  max-width: 80%;
+}
+
+@media all and (min-width: 768px) {
+  .main-content {
+    flex-direction: row;
+    overflow: hidden;
+  }
+}
